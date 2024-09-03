@@ -3,6 +3,22 @@
 ---
 
 <header>
+    <div class="top-header">
+        <div class="top-info">
+            <ul>
+                <li class="bold">For emergency cases: 567 123 45 67</li>
+                <li class="line">Location: 121 Wallstreet Street, NY , USA </li>
+                <li class="line">Open hours: 9.00-24.00 Mon-Sat</li>
+                <li class="line">Email:info@ddsgnr.com</li>
+            </ul>
+        </div>
+        <div class="icons">
+            <img src="../../public/icon/facebook.svg" alt="facebook icon">
+            <img src="../../public/icon/instagram.svg" alt="instagram icon">
+            <img src="../../public/icon/twitter.svg" alt="twitter icon">
+            <img src="../../public/images/linkedin.svg" alt="linkedin icon">
+        </div>
+    </div>
     <nav>
         <div class="logo">
             <img src="../../public/images/logo.png" alt="Ddsgnr Logo">
@@ -21,21 +37,60 @@
 </header>
 
 <style>
-    header{
-        height: 72px;
-        width: 100%;
+    .bold{
+        font-weight: 600;
     }
-    nav{
-        max-width: 1312px;
-        margin: auto;
-        height: 40px;
+    .line{
+        position: relative;
+    }
+    .line::before{
+        position: absolute; 
+        content: ""; 
+        width: 1px; 
+        height: 30px; 
+        left: -10px; 
+        top: -5px;
+        background-color: #000000;
+    }
+    .icons{
+        display: flex; 
+        align-items: center;
+        gap: 20px;
+    }
+    .top-header{
         display: flex; 
         align-items: center;
         justify-content: space-between;
+        max-width: 1312px;
+        width: 100%;
+        border-bottom: 1px solid #000000;
+    }
+    .top-info ul{
+        display: flex; 
+        list-style-type: none;
+        gap: 25px;
+        padding: 0;
+    }
+    header{
+        /* height: 72px; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    nav{
+        max-width: 1312px;
+        width: 100%;
+        margin: auto;
+        /* height: 40px; */
+        display: flex; 
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #000000;
     }
     menu{
         display: flex; 
-        gap: 10px;
+        gap: 20px;
+        align-items: center;
     }
     menu ul{
         display: flex;
@@ -48,13 +103,8 @@
         color: #000000;
         text-decoration: none; 
     }
-    .btn-black{
-		background-color: #000000;
-		color: #FFFFFF; 
-		font-size: 16px; 
-		weight: 400; 
+    button{
 		width: 156px; 
 		height: 40px;
-		border-radius: 5px;
 	}
 </style>
