@@ -16,14 +16,18 @@
 </div>
 <div class="mini-contact">
     <form action="">
-        <label for="name">Full Name</label>
-        <input type="text" name="name" id="name" required>
-
-        <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required >
-
-        <label for="comment">Comment</label>
-        <input type="text" name="comment" id="comment" required>
+        <div>
+            <label for="name">Full Name</label>
+            <input type="text" name="name" id="name" required>
+        </div>
+        <div>
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required >
+        </div>
+        <div>
+            <label for="comment">Comment</label>
+            <input type="text" name="comment" id="comment" required>
+        </div>
 
         <button class="btn-black">Request a Quote</button>
     </form>
@@ -51,6 +55,10 @@
         display: grid;
         padding: 0 25px 0 25px;
     }
+    form > div{
+        display: flex; 
+        flex-direction: column;
+    }
     form label{
         font-size: 16px; 
         font-weight: 400px;
@@ -66,10 +74,23 @@
     *{
         box-sizing: border-box;
     }
-    button{
-        margin: 0;
+    h1{
+        font-size: 40px; 
+        font-weight: 700;
     }
-
+    p{
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 27px;
+        text-align: left;
+        margin-bottom: 30px;
+    }
+    .hero-img{
+        height: 592px;
+    }
+    img{
+        object-fit: cover;
+    }
     /* responsiveness */
     @media (min-width: 1200px) {
         *{
@@ -99,8 +120,21 @@
         button{
             margin-right: 15px;
         }
-
-        form
+        .mini-contact{
+            display: flex; 
+            align-items: center;
+            justify-content: center;
+        }
+        form{
+            display: flex; 
+            align-items: center;
+            justify-self: center;
+            padding: 0;
+        }
+        input{
+            width: 296px;
+            margin-right: 20px;
+        }
     }
 
 </style>
