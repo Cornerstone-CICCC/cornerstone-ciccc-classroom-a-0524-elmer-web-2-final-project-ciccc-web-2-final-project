@@ -1,38 +1,135 @@
 ---
-const {teamImg, teamName, teamDetail } = Astro.props
+import OurTeamCard from "./OurTeamCard.astro";
+
+const team = [
+  {
+    teamImg: "../../public/images/leslie.png",
+    teamName: "Leslie Alexander",
+    teamDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros."
+  },
+  {
+    teamImg: "../../public/images/ralph.png",
+    teamName: "Ralph Edwards",
+    teamDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros."
+  },
+  {
+    teamImg: "../../public/images/annette.png",
+    teamName: "Annette Black",
+    teamDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros."
+  },
+  {
+    teamImg: "../../public/images/savannah.png",
+    teamName: "Savannah Nguyen",
+    teamDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros."
+  }
+];
 ---
 
-<div class="serviceCard">
-  <img src={teamImg} alt="">
-  <div class="detail">
-    <h5 class="serviceName">{teamName}</h5>
-    <p class="serviceDetail">{teamDetail}</p>
+<div class="team-container">
+  <div class="team-heading">
+    <h2>Our team</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
   </div>
+  <div class="teamSection">
+    {team.map(teamData => (
+      <OurTeamCard
+        teamImg={teamData.teamImg}
+        teamName={teamData.teamName}
+        teamDetail={teamData.teamDetail}
+        class="teamCard"
+      />
+    ))}
+  </div>
+  <button id="viewMoreBtn">View All</button>
 </div>
 
+<script is:inline>
+  const cards = document.querySelectorAll(".teamCard");
+  const btn = document.getElementById("viewMoreBtn");
+
+  const updateCardsDisplay = () => {
+    if (window.innerWidth <= 600) {
+      cards.forEach((card, index) => {
+        card.style.display = index < 3 ? "block" : "none";
+      });
+      btn.style.display = "block";
+    } else {
+      cards.forEach(card => {
+        card.style.display = "block";
+      });
+      btn.style.display = "none";
+    }
+  };
+
+  updateCardsDisplay();
+
+  btn.addEventListener("click", () => {
+    cards.forEach(card => {
+      card.style.display = "block";
+    });
+    btn.style.display = "none";
+  });
+
+  window.addEventListener("resize", updateCardsDisplay);
+</script>
+
 <style>
-  .serviceCard{
-    margin: 15px;
-    width:416px;
-    height:494px;
-    padding: 0px 0px 24px 0px;
-    gap: 48px;
-    border-radius: 5px;
-    opacity: 0px;
-    border: 0.5px solid #676767
+
+  .teamSection{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
   }
-  /* .detail{
-  } */
-  .serviceName{
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 33.6px;
+
+  .team-heading{
     text-align: center;
   }
-  .serviceDetail{
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    text-align: center;
+
+  .team-heading p{
+    margin: 0 auto;
+    width: 50%;
+    padding-bottom:50px;
   }
+
+  h2{
+    font-size: 3rem;
+  }
+
+  p{
+    margin-bottom:70px;
+  }
+
+  #viewMoreBtn{
+      display: none;
+    }
+
+  @media screen and (max-width:600px){
+
+    .team-container{
+      margin-bottom: 50px;
+    }
+
+    .teamSection{
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    #viewMoreBtn{
+      display: block;
+      margin: 0 auto;
+      width: 90%;
+      padding:12px 24px;
+      background-color: white;
+      border: solid 1px;
+      border-radius: 5px;
+    }
+
+    #viewMoreBtn:hover{
+      background-color: black;
+      color: white;
+    }
+  }
+  
+
 </style>

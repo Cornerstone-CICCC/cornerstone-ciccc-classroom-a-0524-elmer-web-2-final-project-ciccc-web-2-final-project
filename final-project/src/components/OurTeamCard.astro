@@ -1,0 +1,87 @@
+---
+const {teamImg, teamName, teamDetail } = Astro.props
+---
+<div class="teamCard">
+  <img src={teamImg} alt="">
+  <div class="detail">
+    <h5 class="teamName">{teamName}</h5>
+    <p class="teamDetail">{teamDetail}</p>
+    <ul>
+      <li><a href="https://www.linkedin.com"><img src="/public/images/linkedin.svg"></a></li>
+      <li><a href="https://x.com"><img src="/public/icon/twitter.svg"></a></li>
+      <li><a href="https://x.com"><img src="/public/icon/basketball.svg"></a></li>
+    </ul>
+  </div>
+</div>
+
+<style>
+  .teamCard{
+    margin: 15px;
+    width: 43%;
+    display: flex;
+  }
+
+  .detail{
+    align-items: center;
+    padding-left:35px;
+  }
+
+  .teamName{
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 33.6px;
+  }
+
+  .teamDetail{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  ul{
+    display: flex;
+    padding-left: 0;
+  }
+
+  li{
+    list-style: none;
+    padding-left: 10px;
+  }
+
+  li:first-child{
+    padding-left: 0px;
+  }
+
+@media screen and (max-width:600px){
+  
+  .teamCard{
+    flex-direction: column;
+     width: 90%;
+     margin: 0 auto;
+     padding-bottom: 30px;
+     text-align: center;
+  }
+
+  .teamName{
+    margin-bottom: 10px;
+  }
+
+  img{
+    width:100%;
+  }
+
+  .detail{
+    text-align: center;
+    padding-left: 0px;
+  }
+
+  ul{
+    margin-top: 50px;
+    justify-content: center;
+  }
+
+  #viewMoreBtn{
+    display: block;
+  }
+}
+</style>
