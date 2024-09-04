@@ -49,8 +49,9 @@ const service = [
         class="serviceCard"
       />
     ))}
+    <button id="viewMoreBtn">View All</button>
   </div>
-  <button id="viewMoreBtn">View All</button>
+
 </div>
 
 <script is:inline>
@@ -104,13 +105,12 @@ const service = [
     justify-content: center;
     align-items: center;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
   }
   #viewMoreBtn {
     display: none;
     width: 100%;
     margin-top: 20px;
-    padding: 12px 24px;
+    padding: 12px;
     border-radius: 5px;
     border: 1px solid #000;
     cursor: pointer;
