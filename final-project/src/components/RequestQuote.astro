@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="text">
+    <h2>How we can help...</h2>
+    <p>We offer a wide range of procedures to help you get the perfect smile.</p>
+    <a href="">Request a quote</a>
+  </div>
+  <div class="button">
+    <button onclick="location.href=''">Request a quote</button>
+  </div>
+</div>
+
+<style>
+  .container{
+    border: solid 1px;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding:48px;
+    align-items: center;
+    margin-top:30px;
+  }
+
+  h2{
+    margin-top:0px;
+  }
+
+  p{
+      margin-bottom: 0px;
+    }
+
+  button{
+    background-color: black;
+    color: white;
+    padding: 12px;
+    border-radius: 5px;
+    border:solid 1px black;
+  }
+
+  a{
+    color:black;
+  }
+
+  button:hover{
+    background-color: white;
+    color:black;
+    border:solid 1px;
+  }
+
+  @media screen and (max-width:600px){
+    .container{
+      flex-direction: column;
+      width:70%;
+      padding:20px 30px;
+    }
+    
+    .button{
+      margin-top:30px;
+      align-self: flex-start;
+    }
+  }
+</style>
