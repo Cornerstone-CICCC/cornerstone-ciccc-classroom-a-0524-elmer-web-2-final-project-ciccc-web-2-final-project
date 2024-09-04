@@ -1,0 +1,131 @@
+---
+import OurServiseCard from "./OurServiseCard.astro";
+
+const service = [
+  {
+    serviceImg: "../../public/images/apartment.png",
+    serviceName: "One Bedroom Apartment",
+    serviceDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros."
+  },
+  {
+    serviceImg: "../../public/images/window.png",
+    serviceName: "Window Cleaning",
+    serviceDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros."
+  },
+  {
+    serviceImg: "../../public/images/regidential.png",
+    serviceName: "Residential Cleaning",
+    serviceDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros."
+  },
+  {
+    serviceImg: "../../public/images/construction.png",
+    serviceName: "Construction Cleaning",
+    serviceDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros."
+  },
+  {
+    serviceImg: "../../public/images/commercial.png",
+    serviceName: "Commercial Cleaning",
+    serviceDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros."
+  },
+  {
+    serviceImg: "../../public/images/twoBedroom.png",
+    serviceName: "Two Bedroom Apartment",
+    serviceDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros."
+  }
+];
+---
+
+<div class="service-container">
+  <div class="service-heading">
+    <h2>Our Services</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </div>
+  <div class="serviceSection">
+    {service.map(serviceData => (
+      <OurServiseCard
+        serviceImg={serviceData.serviceImg}
+        serviceName={serviceData.serviceName}
+        serviceDetail={serviceData.serviceDetail}
+        class="serviceCard"
+      />
+    ))}
+  </div>
+  <button id="viewMoreBtn">View All</button>
+</div>
+
+<script is:inline>
+  const cards = document.querySelectorAll(".serviceCard");
+  const btn = document.getElementById("viewMoreBtn");
+
+
+  const updateCardsDisplay = () => {
+    if (window.innerWidth <= 600) {
+      cards.forEach((card, index) => {
+        card.style.display = index < 3 ? "block" : "none";
+      });
+      btn.style.display = "block";
+    } else {
+      cards.forEach(card => {
+        card.style.display = "block";
+      });
+      btn.style.display = "none";
+    }
+  };
+
+  updateCardsDisplay();
+
+  btn.addEventListener("click", () => {
+    cards.forEach(card => {
+      card.style.display = "block";
+    });
+    btn.style.display = "none";
+  });
+
+  window.addEventListener("resize", updateCardsDisplay);
+</script>
+
+<style>
+  .service-container {
+    padding: 112px 64px;
+    gap: 80px;
+  }
+  .service-heading h2 {
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
+  }
+  .service-heading p {
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+  }
+  .serviceSection {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  #viewMoreBtn {
+    display: none;
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px 24px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    cursor: pointer;
+    background-color: #fff;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .serviceSection {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .serviceSection {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
