@@ -1,13 +1,12 @@
 ---
-
-const {serviceImg, serviceName, serviceDetail } = Astro.props
+const {teamImg, teamName, teamDetail } = Astro.props
 ---
 
 <div class="serviceCard">
-  <img src={serviceImg} alt="">
+  <img src={teamImg} alt="">
   <div class="detail">
-    <h5 class="serviceName">{serviceName}</h5>
-    <p class="serviceDetail">{serviceDetail}</p>
+    <h5 class="serviceName">{teamName}</h5>
+    <p class="serviceDetail">{teamDetail}</p>
   </div>
 </div>
 
