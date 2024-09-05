@@ -1,9 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import AboutCard from "../components/AboutCard.astro"
-import Header from "../components/Header.astro";
-import HeroCard from "../components/HeroCard.astro";
+const title = "About Us"
 ---
-<BaseLayout>
-    <AboutCard/>
+<BaseLayout pageTitle={title}>
+    <main>
+        <AboutCard/>
+    </main>
 </BaseLayout>
