@@ -2,8 +2,11 @@
 import ContactUs from "../components/ContactUs.astro";
 import RequestionQuote from "../components/RequestQuote.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+const title = "Contact Us"
 ---
-<BaseLayout>
-  <ContactUs/>
-  <RequestionQuote/>
+<BaseLayout pageTitle={title}>
+  <main>
+    <ContactUs/>
+    <RequestionQuote/>
+  </main>
 </BaseLayout>
