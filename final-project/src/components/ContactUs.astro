@@ -1,8 +1,239 @@
 ---
+const services = [
+  "",
+  "One Bedroom Apartment",
+  "Window Cleaning",
+  "Residential Cleaning",
+  "Construction Cleaning",
+  "Commercial Cleaning",
+  "Two Bedroom Apartment"
+];
 
+const times = [
+  "",
+  "Morning (8 AM - 12 PM)",
+  "Afternoon (12 PM - 4 PM)",
+  "Evening (4 PM - 8 PM)"
+];
 ---
-
-
-<div>
-
+<div class="contact-body">
+  <div class="right-section">
+    <img src="../../public/images/contact.png" alt="">
+  </div>
+  <div class="left-section">
+    <div class="headding">
+      <p class="contact-icon">Contact us</p>
+      <h4>Request a quote</h4>
+      <p class="top-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <form id="contact-form">
+      <div class="form-row">
+        <div>
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="user_name" required />
+        </div>
+        <div>
+          <label for="email">Phone number</label>
+          <input type="email" id="email" name="user_email" required />
+        </div>
+      </div>
+      <div class="form-row">
+        <div>
+          <label for="service">Select Service</label>
+          <select id="service" name="user_service">
+            {services.map(service => (
+              <option value={service}>{service}</option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label for="time">Select Time</label>
+          <select id="time" name="user_time">
+            {times.map(time => (
+              <option value={time}>{time}</option>
+            ))}
+          </select>
+        </div>
+      </div>
+      <div> 
+        <label for="message">Message:</label>
+        <textarea id="message" name="user_message" required></textarea>
+      </div>
+      <div class="checkbox-container">
+        <input type="checkbox" class="checkbox">
+        <p> I accept the <a href="#">terms</a></p>
+      </div>
+      <button type="submit" class="btn-black">Send</button>
+    </form>
+  </div>
 </div>
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+  (function(){
+    emailjs.init({
+      publicKey: "9gOFR0iWLRZP3SoqH",
+    });
+  })();
+</script>
+<script is:inline>
+  const form = document.getElementById('contact-form');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    emailjs.sendForm('service_gg2ibay', 'template_zaue50c', this)
+      .then(function() {
+        alert('Message sent successfully!');
+      }, function(error) {
+        alert('Failed to send message: ' + error);
+      });
+  });
+</script>
+
+<style>
+  .contact-body {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .right-section {
+    display: none; 
+  }
+
+  .left-section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .headding {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    width: 380px;
+    padding-bottom: 15px;
+  }
+
+  .contact-icon {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+  }
+
+  .top-p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+    text-align: left;
+  }
+
+  h4 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 41.6px;
+    margin: 0;
+    text-align: left;
+  }
+
+  form {
+    width: 95%;
+    max-width: 750px;
+  }
+
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .form-row div {
+    flex: 1;
+  }
+
+  label {
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 8px;
+  }
+
+  select, textarea, input:not(.checkbox) {
+    width: 95%;
+    border-radius: 5px;
+    border: 1px solid #000000;
+  }
+
+  select {
+    width: 97%;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    height: 45px;
+    margin-bottom: 1rem;
+  }
+
+  input:not(.checkbox) {
+    height: 40px;
+    margin-bottom: 1rem;
+  }
+
+  textarea {
+    height: 180px;
+    padding: 12px;
+  }
+
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .checkbox-container a {
+    color: black;
+  }
+
+  .checkbox {
+    margin-right: 10px;
+  }
+
+  button {
+    width: 15%;
+  }
+
+  button:hover {
+    opacity: 0.8;
+  }
+
+  p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .right-section {
+      display: block;
+      width: 40%;
+    }
+    .left-section {
+      width: 40%;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    .form-row {
+      flex-direction: column;
+    }
+
+    textarea {
+      width: 92%;
+    }
+
+    button {
+      width: 100%;
+    }
+  }
+</style>
