@@ -46,7 +46,7 @@
     .buttons{
         margin-bottom: 30px;
     }
-    button{
+    .buttons button{
         margin-right: 10px;
     }
 
@@ -90,6 +90,7 @@
     }
     img{
         object-fit: cover;
+        height: 100%;
     }
     /* responsiveness */
     @media (min-width: 1200px) {
@@ -98,6 +99,17 @@
         }
         .hero{
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 0 0 60px;
+            height: 900px;
+        }
+        img{
+            width: 100%;
+        }
+        .hero-img{
+            max-width: 720px;
+            height: 100%;
         }
         .hero-text{
             display: flex; 
