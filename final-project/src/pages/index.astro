@@ -6,12 +6,19 @@ import Footer from "../components/Footer.astro"
 import RequestQuote from "../components/RequestQuote.astro"
 import OurTeam from "../components/OurTeam.astro"
 import ContactUs from "../components/ContactUs.astro"
+import HeroCard from "../components/HeroCard.astro"
+import AboutCard from "../components/AboutCard.astro"
+import Header from "../components/Header.astro"
+
 ---
-	<BaseLayout>
+<BaseLayout>
+    <Header/>
     <main>
+    <HeroCard/>
 	<ServiceSection/>
-    <RequestQuote/>
+    <AboutCard/>
     <OurTeam/>
     <ContactUs/>
+    <RequestQuote/>
     </main>
-	</BaseLayout>
+</BaseLayout>
