@@ -1,0 +1,152 @@
+---
+
+---
+<div class="hero">
+    <div class="hero-text">
+        <h1>A Clean Home, A Happy Life, Let Us Handle the Dirty Work!</h1>
+        <p>We develop innovative design solutions that enable our clients to enhance their competitive advantage.</p>
+        <div class="buttons">
+            <button class="btn-black">Request a Quote</button>
+            <button class="btn-white">Learn More</button>
+        </div>
+    </div>
+    <div class="hero-img">
+        <img src="../../public/images/header.png" alt="Man with aprong">
+    </div>
+</div>
+<div class="mini-contact">
+    <form action="">
+        <div>
+            <label for="name">Full Name</label>
+            <input type="text" name="name" id="name" required>
+        </div>
+        <div>
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required >
+        </div>
+        <div>
+            <label for="comment">Comment</label>
+            <input type="text" name="comment" id="comment" required>
+        </div>
+
+        <button class="btn-black">Request a Quote</button>
+    </form>
+</div>
+
+<style>
+    img{
+        width:100%;
+    }
+    .hero{
+        padding: 0 25px 0 25px;
+    }
+    .hero-text{
+        margin-bottom: 30px;
+    }
+    .buttons{
+        margin-bottom: 30px;
+    }
+    .buttons button{
+        margin-right: 10px;
+    }
+
+    form{
+        margin: 50px 0 20px 0;
+        display: grid;
+        padding: 0 25px 0 25px;
+    }
+    form > div{
+        display: flex; 
+        flex-direction: column;
+    }
+    form label{
+        font-size: 16px; 
+        font-weight: 400px;
+        margin-bottom: 5px;
+    }
+    form input{
+        height: 48px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        padding: 12px;
+        border: .5px solid #000;
+    }
+    *{
+        box-sizing: border-box;
+    }
+    h1{
+        font-size: 40px; 
+        font-weight: 700;
+    }
+    p{
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 27px;
+        text-align: left;
+        margin-bottom: 30px;
+    }
+    .hero-img{
+        height: 592px;
+    }
+    img{
+        object-fit: cover;
+        height: 100%;
+    }
+    /* responsiveness */
+    @media (min-width: 1200px) {
+        *{
+        box-sizing: border-box;
+        }
+        .hero{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 0 0 60px;
+            height: 900px;
+        }
+        img{
+            width: 100%;
+        }
+        .hero-img{
+            max-width: 720px;
+            height: 100%;
+        }
+        .hero-text{
+            display: flex; 
+            flex-direction: column;
+            align-items: start;
+            justify-content: center;
+            max-width: 720px;
+            width: 100%;
+            padding: 0 70px;
+        }
+        h1{
+            font-size: 56px; 
+            font-weight: 700;
+            margin: 0;
+        }
+        p{
+            font-size: 18px; 
+            font-weight: 400;
+        }
+        button{
+            margin-right: 15px;
+        }
+        .mini-contact{
+            display: flex; 
+            align-items: center;
+            justify-content: center;
+        }
+        form{
+            display: flex; 
+            align-items: center;
+            justify-self: center;
+            padding: 0;
+        }
+        input{
+            width: 296px;
+            margin-right: 20px;
+        }
+    }
+
+</style>

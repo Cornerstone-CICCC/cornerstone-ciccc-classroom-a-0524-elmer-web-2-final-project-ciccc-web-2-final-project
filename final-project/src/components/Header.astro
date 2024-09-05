@@ -3,58 +3,212 @@
 ---
 
 <header>
-    <nav>
-        <div class="logo">
-            <img src="../../public/images/logo.png" alt="Ddsgnr Logo">
+    <div class="border one">
+        <div class="top-header">
+            <div class="top-info">
+                <ul>
+                    <li class="bold">For emergency cases: 567 123 45 67</li>
+                    <li class="line">Location: 121 Wallstreet Street, NY , USA </li>
+                    <li class="line">Open hours: 9.00-24.00 Mon-Sat</li>
+                    <li class="line">Email:info@ddsgnr.com</li>
+                </ul>
+            </div>
+            <div class="icons">
+                <img src="../../public/icon/facebook.svg" alt="facebook icon">
+                <img src="../../public/icon/instagram.svg" alt="instagram icon">
+                <img src="../../public/icon/twitter.svg" alt="twitter icon">
+                <img src="../../public/images/linkedin.svg" alt="linkedin icon">
+            </div>
         </div>
-        <menu>
-            <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="">Services</a></li>
-                <li><a href="">Team</a></li>
-                <li><a href="">Contact</a></li>
-            </ul>
-            <button class="btn-black">Request a Quote</button>
-        </menu>
-    </nav>
+    </div>
+    <div class="border two">
+        <nav>
+            <div class="logo">
+                <img src="../../public/images/logo.png" alt="Ddsgnr Logo">
+            </div>
+            <menu>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/services">Services</a></li>
+                    <li><a href="">Team</a></li>
+                    <li><a href="">Contact</a></li>
+                    <svg class="close" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                </ul>
+                <button id="hide-btn" class="btn-black">Request a Quote</button>
+            </menu>
+            <img class="burger-menu" src="../../public/icon/burger.svg" alt="burger menu icon">
+        </nav>
+    </div>
 </header>
 
 <style>
-    header{
-        height: 72px;
-        width: 100%;
+    *{
+        box-sizing: border-box;
     }
-    nav{
-        max-width: 1312px;
-        margin: auto;
-        height: 40px;
-        display: flex; 
-        align-items: center;
-        justify-content: space-between;
-    }
-    menu{
-        display: flex; 
-        gap: 10px;
+    #hide-btn{
+        display: none;
     }
     menu ul{
-        display: flex;
-        gap: 10px;
+        position: fixed; 
+        top: -235px;
+        left: 0;
+        background-color: rgba(255, 255, 255, 0.97);
+        padding-left: 50px;
+        padding-top: 40px;
+        width: 100%;
+        margin: 0;
+        transition: all .5s ease-in-out;
+    }
+    .burger-menu{
+        opacity: 100%;
+        /* z-index: -1; */
+    }
+    .close{
+        position: absolute;
+        top: 17px; 
+        right: 37px;
+    }
+    li{
+        margin-bottom: 20px;
         list-style-type: none;
-        font-weight: 400; 
         font-size: 16px;
     }
     a{
         color: #000000;
-        text-decoration: none; 
+        text-decoration: none;
     }
-    .btn-black{
-		background-color: #000000;
-		color: #FFFFFF; 
-		font-size: 16px; 
-		weight: 400; 
-		width: 156px; 
-		height: 40px;
-		border-radius: 5px;
-	}
+    nav{
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 25px 5px 25px;
+    }
+    .border.two{
+        border-bottom: 1px solid #000000;
+    }
+    .top-header{
+        display: none;
+    }
+
+    @media (min-width: 1200px) {
+        #hide-btn{
+            display: block;
+        }
+        menu ul svg{
+            display: none;
+        }
+        li{
+            margin-bottom: 0;
+        }
+        .border{
+            width: 100%;
+            border-bottom: 1px solid #000000;
+        }
+        .border.one{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        nav{
+            padding: 10px 0 10px 0;
+        }
+        .burger-menu{
+            display: none;
+        }
+        .bold{
+        font-weight: 600;
+        }
+        .line{
+            position: relative;
+        }
+        .line::before{
+            position: absolute; 
+            content: ""; 
+            width: 1px; 
+            height: 30px; 
+            left: -10px; 
+            top: -5px;
+            background-color: #000000;
+        }
+        .icons{
+            display: flex; 
+            align-items: center;
+            gap: 20px;
+        }
+        .top-header{
+            display: flex; 
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1312px;
+            padding: 15px 0 15px 0;
+            width: 100%;
+        }
+        .top-info ul{
+            display: flex; 
+            list-style-type: none;
+            gap: 25px;
+            margin: 0;
+        }
+        header{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        nav{
+            max-width: 1312px;
+            width: 100%;
+            margin: auto;
+            display: flex; 
+            align-items: center;
+            justify-content: space-between;
+        }
+        menu{
+            display: flex; 
+            gap: 20px;
+            align-items: center;
+            justify-content: space-evenly;
+            margin: 0;
+            padding: 0;
+        }
+        menu ul{
+            display: flex;
+            gap: 10px;
+            list-style-type: none;
+            font-weight: 400; 
+            font-size: 16px;
+            position: relative;
+            top: 0; 
+            left: 0;
+            padding: 0;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        a{
+            color: #000000;
+            text-decoration: none; 
+        }
+        button{
+            width: 156px; 
+            height: 40px;
+        }
+    }
 </style>
+
+<script>
+    //burger menu
+    const openIcon = document.querySelector(".burger-menu")
+    const closeIcon = document.querySelector(".close")
+    const menu = document.querySelector("menu ul")
+
+    openIcon.addEventListener("click", ()=>{
+        openIcon.style.opacity= "0"
+        openIcon.style.display= "none"
+        menu.style.top = "0"
+    })
+    closeIcon.addEventListener("click", ()=>{
+        openIcon.style.display= "block"
+        openIcon.style.opacity= "100"
+        console.log("close clicked")
+        menu.style.top = "-235px"
+    })
+</script>
