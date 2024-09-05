@@ -1,4 +1,8 @@
 ---
+const USER_ID = import.meta.env.USER_ID
+const TEMP_ID = import.meta.env.TEMP_ID
+const PUB_KEY = import.meta.env.PUB_KEY
+
 const services = [
   "",
   "One Bedroom Apartment",
@@ -70,20 +74,20 @@ const times = [
 <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
 </script>
-<script type="text/javascript">
+<script type="text/javascript" define:vars={{ PUB_KEY}}>
   (function(){
     emailjs.init({
-      publicKey: "9gOFR0iWLRZP3SoqH",
+      publicKey: PUB_KEY,
     });
   })();
 </script>
-<script is:inline>
+<script is:inline define:vars={{ USER_ID, TEMP_ID }}>
   const form = document.getElementById('contact-form');
 
   form.addEventListener('submit', function(event) {
     event.preventDefault();
 
-    emailjs.sendForm('service_gg2ibay', 'template_zaue50c', this)
+    emailjs.sendForm(USER_ID, TEMP_ID, this)
       .then(function() {
         alert('Message sent successfully!');
       }, function(error) {
