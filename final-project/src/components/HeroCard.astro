@@ -1,5 +1,7 @@
 ---
-
+const USER_ID = import.meta.env.USER_ID
+const TEMP_ID = import.meta.env.TEMP_ID
+const PUB_KEY = import.meta.env.PUB_KEY
 ---
 <div class="hero">
     <div class="hero-text">
@@ -15,14 +17,14 @@
     </div>
 </div>
 <div class="mini-contact">
-    <form action="">
+    <form id="contact-form">
         <div>
             <label for="name">Full Name</label>
             <input type="text" name="name" id="name" required>
         </div>
         <div>
             <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required >
+            <input type="tel" id="phone" name="phone" required >
         </div>
         <div>
             <label for="comment">Comment</label>
@@ -33,6 +35,30 @@
     </form>
 </div>
 
+<script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript" define:vars={{ PUB_KEY}}>
+(function(){
+    emailjs.init({
+    publicKey: PUB_KEY,
+    });
+})();
+</script>
+<script is:inline define:vars={{ USER_ID, TEMP_ID }}>
+const form = document.getElementById('contact-form');
+
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    emailjs.sendForm(USER_ID, TEMP_ID, this)
+    .then(function() {
+        alert('Message sent successfully!');
+    }, function(error) {
+        alert('Failed to send message: ' + error);
+    });
+});
+</script>
 <style>
     img{
         width:100%;
