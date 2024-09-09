@@ -44,33 +44,33 @@ const team = [
 </div>
 
 <script is:inline>
-  const cards = document.querySelectorAll(".teamCard");
-  const btn = document.getElementById("viewMoreBtn");
+  const tCards = document.querySelectorAll(".teamCard");
+  const tbtn = document.getElementById("viewMoreBtn");
 
-  const updateCardsDisplay = () => {
+  const updateDisplay = () => {
     if (window.innerWidth <= 600) {
-      cards.forEach((card, index) => {
+        tCards.forEach((card, index) => {
         card.style.display = index < 3 ? "block" : "none";
       });
-      btn.style.display = "block";
+      tbtn.style.display = "block";
     } else {
-      cards.forEach(card => {
+      tCards.forEach(card => {
         card.style.display = "block";
       });
-      btn.style.display = "none";
+      tbtn.style.display = "none";
     }
   };
 
-  updateCardsDisplay();
+  updateDisplay();
 
   btn.addEventListener("click", () => {
-    cards.forEach(card => {
+    tCards.forEach(card => {
       card.style.display = "block";
     });
-    btn.style.display = "none";
+    tbtn.style.display = "none";
   });
 
-  window.addEventListener("resize", updateCardsDisplay);
+  window.addEventListener("resize", updateDisplay);
 </script>
 
 <style>

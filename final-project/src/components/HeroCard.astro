@@ -17,7 +17,7 @@ const PUB_KEY = import.meta.env.PUB_KEY
     </div>
 </div>
 <div class="mini-contact">
-    <form id="contact-form">
+    <form id="hero-form">
         <div>
             <label for="name">Full Name</label>
             <input type="text" name="name" id="name" required>
@@ -46,7 +46,7 @@ const PUB_KEY = import.meta.env.PUB_KEY
 })();
 </script>
 <script is:inline define:vars={{ USER_ID, TEMP_ID }}>
-const form = document.getElementById('contact-form');
+const form = document.getElementById('hero-form');
 
 form.addEventListener('submit', function(event) {
     event.preventDefault();
